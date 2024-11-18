@@ -15,12 +15,14 @@ import axios from "axios";
 import Footer from "./components/Footer";
 
 const App = () => {
-  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, setUser, url } =
+    useContext(Context);
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/v1/user/patient/me",
+          // "http://localhost:4000/api/v1/user/patient/me",
+          `${url}/api/v1/user/patient/me`,
           { withCredentials: true }
         );
         setIsAuthenticated(true);

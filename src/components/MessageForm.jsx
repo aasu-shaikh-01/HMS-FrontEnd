@@ -1,8 +1,12 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
+import { Context } from "../main";
 
 const MessageForm = () => {
+  const { url } = useContext(Context);
+  console.log(url);
+  
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,7 +17,8 @@ const MessageForm = () => {
     try {
       await axios
         .post(
-          "http://localhost:4000/api/v1/message/send",
+          // "http://localhost:4000/api/v1/message/send",
+          `${url}/api/v1/message/send`,
           { firstName, lastName, phone, email, message },
           {
             withCredentials: true,

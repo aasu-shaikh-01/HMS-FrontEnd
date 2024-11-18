@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 const Register = () => {
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, url } = useContext(Context);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,7 +21,8 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/user/patient/register",
+        // "http://localhost:4000/api/v1/user/patient/register",
+        `${url}/api/v1/user/patient/register`,
         {
           firstName,
           lastName,

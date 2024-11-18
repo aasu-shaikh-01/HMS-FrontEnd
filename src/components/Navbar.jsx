@@ -7,11 +7,12 @@ import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, url } = useContext(Context);
 
   const handleLogout = async () => {
     await axios
-      .get("http://localhost:4000/api/v1/user/patient/logout", {
+      // .get("http://localhost:4000/api/v1/user/patient/logout", {
+      .get(`${url}/api/v1/user/patient/logout`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -30,7 +31,9 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-center items-center px-5">
-      <div className="flex justify-between"><img src="logo.png" alt="logo" className="h-16 w-52" /></div>
+      <div className="flex justify-between">
+        <img src="logo.png" alt="logo" className="h-16 w-52" />
+      </div>
       <div
         className={`${
           show ? "navLinks showmenu" : "navLinks"

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const AppointmentForm = () => {
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, url } = useContext(Context);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -37,7 +37,8 @@ const AppointmentForm = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       const { data } = await axios.get(
-        "http://localhost:4000/api/v1/user/doctors",
+        // "http://localhost:4000/api/v1/user/doctors",
+        `${url}/api/v1/user/doctors`,
         { withCredentials: true }
       );
 
@@ -53,7 +54,8 @@ const AppointmentForm = () => {
     try {
       const hasVisitedBool = Boolean(hasVisited);
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/appointment/post",
+        // "http://localhost:4000/api/v1/appointment/post",
+        `${url}/api/v1/appointment/post`,
         {
           firstName,
           lastName,
@@ -82,7 +84,6 @@ const AppointmentForm = () => {
     } catch (error) {
       toast.error(error.response.data.message);
       // console.log(error);
-      
     }
   };
 
