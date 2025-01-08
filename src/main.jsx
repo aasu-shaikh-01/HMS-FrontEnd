@@ -8,10 +8,10 @@ export const Context = createContext({ isAuthenticated: false });
 const AppWrapper = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState({});
-  const url = "https://hms-backend-m6zz.onrender.com";
+  // const url = "https://hms-backend-m6zz.onrender.com";
   return (
     <Context.Provider
-      value={{ isAuthenticated, setIsAuthenticated, user, setUser, url }}
+      value={{ isAuthenticated, setIsAuthenticated, user, setUser }}
     >
       <App />
     </Context.Provider>
@@ -19,7 +19,7 @@ const AppWrapper = () => {
 };
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <AppWrapper />
-  </StrictMode>
+  // <StrictMode>
+  <AppWrapper />
+  // </StrictMode>
 );

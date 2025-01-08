@@ -126,7 +126,7 @@ const Department = () => {
   };
 
   return (
-    <div>
+    <div className="px-6">
       <h2 className="text-center text-2xl font-bold my-4">Departments</h2>
       <Carousel responsive={responsive} removeArrowOnDeviceType={["small"]}>
         {departmentsArray.map((depart, index) => (

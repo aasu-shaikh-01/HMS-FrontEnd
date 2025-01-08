@@ -51,9 +51,9 @@ const Footer = () => {
             <Link to={"/about"}>About</Link>
           </div>
           <div>
-            {hours.map((e) => {
+            {hours.map((e, i) => {
               return (
-                <li>
+                <li key={i}>
                   <span>{e.day}</span> <span>{e.time}</span>
                 </li>
               );
@@ -61,13 +61,13 @@ const Footer = () => {
           </div>
           <div>
             <span className="flex gap-2 items-center">
-              <FaPhone /> 0000 0000 0000
+              <FaPhone /> 800 289 5833
             </span>
             <span className="flex gap-2 items-center">
-              <MdEmail /> aasu@gmail.com
+              <MdEmail /> absarraza@gmail.com
             </span>
             <span className="flex gap-2 items-center">
-              <FaLocationArrow /> Banglore, India
+              <FaLocationArrow /> Purnea, India
             </span>
           </div>
         </div>

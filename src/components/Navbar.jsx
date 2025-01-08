@@ -7,22 +7,25 @@ import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
-  const { isAuthenticated, setIsAuthenticated, url } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
+  console.log(isAuthenticated);
 
   const handleLogout = async () => {
     await axios
-      // .get("http://localhost:4000/api/v1/user/patient/logout", {
-      .get(`${url}/api/v1/user/patient/logout`, {
+      .get("http://localhost:4000/api/v1/user/patient/logout", {
+        // .get(`${url}/api/v1/user/patient/logout`, {
         withCredentials: true,
       })
       .then((res) => {
         toast.success(res.data.message);
         setIsAuthenticated(false);
+        // setUser("");
       })
       .catch((err) => {
         toast.error(err.response.data.message);
       });
   };
+  // setIsAuthenticated(false);
 
   const Navigate = useNavigate();
   const gotoLogin = () => {
@@ -30,10 +33,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-center items-center px-5">
-      <div className="flex justify-between">
+    <nav className="flex justify-center items-center px-5 sticky top-0 bg-slate-300 z-50">
+      <Link to={"/"} className="flex justify-between">
         <img src="logo.png" alt="logo" className="h-16 w-52" />
-      </div>
+      </Link>
       <div
         className={`${
           show ? "navLinks showmenu" : "navLinks"
@@ -66,14 +69,14 @@ const Navbar = () => {
           </button>
         )}
       </div>
-      <div
+      {/* <div
         className=""
         onClick={() => {
           setShow(!show);
         }}
       >
-        {/* <GiHamburgerMenu /> */}
-      </div>
+        <GiHamburgerMenu />
+      </div> */}
     </nav>
   );
 };

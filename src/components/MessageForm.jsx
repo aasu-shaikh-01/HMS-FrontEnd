@@ -5,7 +5,6 @@ import { Context } from "../main";
 
 const MessageForm = () => {
   const { url } = useContext(Context);
-  console.log(url);
   
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -17,8 +16,8 @@ const MessageForm = () => {
     try {
       await axios
         .post(
-          // "http://localhost:4000/api/v1/message/send",
-          `${url}/api/v1/message/send`,
+          "http://localhost:4000/api/v1/message/send",
+          // `${url}/api/v1/message/send`,
           { firstName, lastName, phone, email, message },
           {
             withCredentials: true,
@@ -41,11 +40,11 @@ const MessageForm = () => {
   };
   return (
     <div className="p-4 m-4">
-      <h2 className="text-2xl font-bold text-center py-2">Send Us A Message</h2>
+      <h2 className="text-2xl font-bold text-center py-2">Send Us A Message, For All</h2>
       <form onSubmit={handleMessage}>
         <div className="flex space-x-4 py-4">
           <input
-            className="border-2 border-black rounded-sm w-full"
+            className="border-1 p-2 border-black rounded-sm w-full"
             type="text"
             placeholder="First Name"
             value={firstName}
@@ -54,7 +53,7 @@ const MessageForm = () => {
             }}
           />
           <input
-            className="border-2 border-black rounded-sm w-full"
+            className="border-1 p-2 border-black rounded-sm w-full"
             type="text"
             placeholder="Last Name"
             value={lastName}
@@ -65,7 +64,7 @@ const MessageForm = () => {
         </div>
         <div className="flex space-x-4">
           <input
-            className="border-2 border-black rounded-sm w-full"
+            className="border-1 p-2 border-black rounded-sm w-full"
             type="text"
             placeholder="Email"
             value={email}
@@ -74,7 +73,7 @@ const MessageForm = () => {
             }}
           />
           <input
-            className="border-2 border-black rounded-sm w-full"
+            className="border-1 p-2 border-black rounded-sm w-full"
             type="number"
             placeholder="Phone"
             value={phone}
@@ -84,7 +83,7 @@ const MessageForm = () => {
           />
         </div>
         <textarea
-          className="border-2 border-black rounded-sm w-full mt-8"
+          className="border-1 p-2 border-black rounded-sm w-full mt-8"
           rows={7}
           placeholder="Message"
           value={message}
