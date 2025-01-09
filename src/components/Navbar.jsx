@@ -40,7 +40,7 @@ const Navbar = () => {
       <div
         className={`${
           show ? "navLinks showmenu" : "navLinks"
-        } ml-80 flex w-full justify-between`}
+        } ml-80 flex w-full justify-between mr-8`}
       >
         <div className="flex justify-center items-center">
           <Link to={"/"} className="mx-6">
