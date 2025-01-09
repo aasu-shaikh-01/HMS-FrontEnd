@@ -52,6 +52,9 @@ const Navbar = () => {
           <Link to={"/about"} className="mx-6">
             ABOUT US
           </Link>
+          <Link to={"/https://hms-admins-dashboard.netlify.app"} className="mx-6">
+            ABOUT US
+          </Link>
         </div>
         {isAuthenticated ? (
           <button
