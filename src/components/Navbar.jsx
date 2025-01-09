@@ -33,7 +33,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-center items-center px-5 sticky top-0 bg-slate-300 z-50">
+    <nav className="flex justify-between items-center px-5 sticky top-0 bg-slate-300 z-50">
       <Link to={"/"} className="flex justify-between">
         <img src="logo.png" alt="logo" className="h-16 w-52" />
       </Link>
@@ -52,24 +52,26 @@ const Navbar = () => {
           <Link to={"/about"} className="mx-6">
             ABOUT US
           </Link>
-          <a href="https://hms-admins-dashboard.netlify.app" target="_blank">DASHBOARD</a>
+          <a href="https://hms-admins-dashboard.netlify.app" target="_blank">
+            DASHBOARD
+          </a>
         </div>
-        {isAuthenticated ? (
-          <button
-            onClick={handleLogout}
-            className="bg-blue-950 text-white text-sm font-bold p-2 px-4 rounded-full shadow-2xl"
-          >
-            LOGOUT
-          </button>
-        ) : (
-          <button
-            onClick={gotoLogin}
-            className="bg-blue-950 text-white text-sm font-bold p-2 px-4 rounded-full shadow-2xl"
-          >
-            LOGIN
-          </button>
-        )}
       </div>
+      {isAuthenticated ? (
+        <button
+          onClick={handleLogout}
+          className="bg-blue-950 text-white text-sm font-bold p-2 px-4 rounded-full shadow-2xl"
+        >
+          LOGOUT
+        </button>
+      ) : (
+        <button
+          onClick={gotoLogin}
+          className="bg-blue-950 text-white text-sm font-bold p-2 px-4 rounded-full shadow-2xl"
+        >
+          LOGIN
+        </button>
+      )}
       {/* <div
         className=""
         onClick={() => {
