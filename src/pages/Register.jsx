@@ -21,7 +21,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/user/patient/register",
+        "https://hms-backend-czxa.onrender.com/api/v1/user/patient/register",
         // `${url}/api/v1/user/patient/register`,
         {
           firstName,

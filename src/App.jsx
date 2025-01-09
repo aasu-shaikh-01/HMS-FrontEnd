@@ -21,7 +21,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/v1/user/patient/me",
+          "https://hms-backend-czxa.onrender.com/api/v1/user/patient/me",
           // `${url}/api/v1/user/patient/me`,
           { withCredentials: true }
         );
