@@ -52,9 +52,7 @@ const Navbar = () => {
           <Link to={"/about"} className="mx-6">
             ABOUT US
           </Link>
-          <Link to={"/https://hms-admins-dashboard.netlify.app"} className="mx-6">
-            ABOUT US
-          </Link>
+          <a href="https://hospital-managements-systems.netlify.app" target="_blank">DASHBOARD</a>
         </div>
         {isAuthenticated ? (
           <button
